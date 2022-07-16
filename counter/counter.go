@@ -3,8 +3,7 @@ package counter
 type Operation int
 
 const (
-	ADD Operation = iota
-	GET
+	GET Operation = iota
 )
 
 type Counter struct {
@@ -22,21 +21,14 @@ func New() *Counter {
 	go func() {
 		for a := range counter.ops {
 			switch a {
-			case ADD:
-				counter.count++
-				counter.res <- counter.count
 			case GET:
 				counter.res <- counter.count
+				counter.count++
 			}
 		}
 	}()
 
 	return &counter
-}
-
-func (c *Counter) Add() {
-	c.ops <- ADD
-	<-c.res
 }
 
 func (c *Counter) Get() int {

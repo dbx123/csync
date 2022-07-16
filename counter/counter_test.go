@@ -11,7 +11,7 @@ func TestCounter(t *testing.T) {
 	numAdds := 3
 
 	for i := 0; i < numAdds; i++ {
-		ctr.Add()
+		ctr.Get()
 	}
 
 	count := ctr.Get()
