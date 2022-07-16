@@ -11,10 +11,10 @@ func TestCounter(t *testing.T) {
 	numAdds := 3
 
 	for i := 0; i < numAdds; i++ {
-		ctr.Get()
+		ctr.Add()
 	}
 
-	count := ctr.Get()
+	count := ctr.Add()
 
 	if count != numAdds {
 		t.Fatalf("incorrect count expected %v, got %v", numAdds, count)
