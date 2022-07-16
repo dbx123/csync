@@ -19,12 +19,9 @@ func New() *Counter {
 	}
 
 	go func() {
-		for a := range counter.ops {
-			switch a {
-			case ADD:
-				counter.res <- counter.count
-				counter.count++
-			}
+		for range counter.ops {
+			counter.res <- counter.count
+			counter.count++
 		}
 	}()
 
