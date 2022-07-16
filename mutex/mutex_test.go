@@ -3,7 +3,7 @@ package mutex
 import (
 	"testing"
 
-	"go-uk-maps-import/csync/waitgroup"
+	"github.com/dbx123/csync/waitgroup"
 )
 
 func TestWaitgroup(t *testing.T) {
